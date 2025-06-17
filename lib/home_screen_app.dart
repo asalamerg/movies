@@ -1,11 +1,11 @@
 
-import 'package:app_movies/browse/browse.dart';
-import 'package:app_movies/search/search.dart' show Search;
+import 'package:app_movies/browse/view/browse.dart';
+import 'package:app_movies/search/view/search.dart' show Search;
 import 'package:app_movies/shared/theme_app.dart';
-import 'package:app_movies/watch/watch.dart' show Watch;
+import 'package:app_movies/watch/view/watch.dart' show Watch;
 import 'package:flutter/material.dart';
 
-import 'home/home.dart' show Home;
+import 'home/view/home.dart' show Home;
 
 class HomeScreen extends StatefulWidget{
  static const  String routeName="homeScreen";

@@ -1,10 +1,22 @@
+import 'package:app_movies/home/model_view/movies_cubit.dart';
+import 'package:app_movies/shared/observer.dart';
 import 'package:app_movies/shared/theme_app.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'home_screen_app.dart' show HomeScreen;
 
 void main() {
-  runApp( const Movies());
+  Bloc.observer = MyBlocObserver();
+
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => MoviesCubit()),
+      ],
+      child: const Movies(),
+    ),
+  );
 }
 
 class Movies extends StatelessWidget{
@@ -12,13 +24,18 @@ class Movies extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      routes: {
-        HomeScreen.routeName :(_)=> HomeScreen(),
-      },initialRoute: HomeScreen.routeName,
+    return ScreenUtilInit(
+      designSize:const Size(412, 892),
+      minTextAdapt: true,
+      child: MaterialApp(
+        routes: {
+          HomeScreen.routeName :(_)=> const HomeScreen(),
 
-        theme: ThemeApp.lightTheme,
-      themeMode: ThemeMode.light
+        },initialRoute: HomeScreen.routeName,
+
+          theme: ThemeApp.lightTheme,
+        themeMode: ThemeMode.light
+      ),
     );
 
   }
