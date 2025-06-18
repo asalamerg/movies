@@ -1,3 +1,4 @@
+import 'package:app_movies/browse/view_model/cubit_list.dart';
 import 'package:app_movies/home/model_view/movies_cubit.dart';
 import 'package:app_movies/shared/observer.dart';
 import 'package:app_movies/shared/theme_app.dart';
@@ -14,11 +15,14 @@ void main() {
     MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => MoviesCubit()),
+        BlocProvider(create: (_)=>CubitList()),
       ],
       child: const Movies(),
     ),
   );
 }
+
+
 
 class Movies extends StatelessWidget{
   const Movies({super.key});
@@ -31,7 +35,7 @@ class Movies extends StatelessWidget{
       child: MaterialApp(
         routes: {
           HomeScreen.routeName :(_)=> const HomeScreen(),
-          DetailsScreen.routeName :(_)=>DetailsScreen(),
+          DetailsScreen.routeName :(_)=>const DetailsScreen(),
 
         },initialRoute: HomeScreen.routeName,
 
