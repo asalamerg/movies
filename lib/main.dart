@@ -4,6 +4,7 @@ import 'package:app_movies/shared/theme_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'details/view/details_screen.dart';
 import 'home_screen_app.dart' show HomeScreen;
 
 void main() {
@@ -30,6 +31,7 @@ class Movies extends StatelessWidget{
       child: MaterialApp(
         routes: {
           HomeScreen.routeName :(_)=> const HomeScreen(),
+          DetailsScreen.routeName :(_)=>DetailsScreen(),
 
         },initialRoute: HomeScreen.routeName,
 
