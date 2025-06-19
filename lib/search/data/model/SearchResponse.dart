@@ -1,8 +1,8 @@
-import 'Results.dart';
 import 'dart:convert';
 
+import 'package:app_movies/home/data/model/Results.dart';
+
 SearchResponse searchResponseFromJson(String str) => SearchResponse.fromJson(json.decode(str));
-String searchResponseToJson(SearchResponse data) => json.encode(data.toJson());
 class SearchResponse {
   SearchResponse({
       this.page, 
@@ -26,15 +26,6 @@ class SearchResponse {
   num? totalPages;
   num? totalResults;
 
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['page'] = page;
-    if (results != null) {
-      map['results'] = results?.map((v) => v.toJson()).toList();
-    }
-    map['total_pages'] = totalPages;
-    map['total_results'] = totalResults;
-    return map;
-  }
+
 
 }
